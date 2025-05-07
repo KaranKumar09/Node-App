@@ -1,0 +1,18 @@
+# Use Node.js official image as base
+FROM node:16-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies
+COPY package*.json ./
+RUN npm install
+
+# Copy application code
+COPY . .
+
+# Expose the backend port
+EXPOSE 5000
+
+# Start the application
+CMD ["npm", "start"]
